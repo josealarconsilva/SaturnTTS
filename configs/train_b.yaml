@@ -1,0 +1,35 @@
+# Phase B: Style-conditioned training
+# Adds style conditioning to Phase A model and trains with multi-term CFG
+
+training:
+  phase: B
+  max_steps: 100000
+  warmup_steps: 20000
+  learning_rate: 7.5e-5
+  weight_decay: 0.01
+  grad_clip: 1.0
+  grad_accumulation_steps: 4
+  max_frames_per_batch: 12000
+  mixed_precision: bf16
+
+  # Two-stage unfreezing
+  freeze_pretrained_steps: 10000  # freeze base DiT for first 10K steps
+
+  # EMA
+  ema_decay: 0.9999
+
+  # Logging
+  log_every: 100
+  save_every: 5000
+  sample_every: 5000
+
+  keep_last_n_checkpoints: 5
+
+data:
+  train_metadata: /home/jose/SaturnTTS/data/metadata_train.json
+  val_metadata: /home/jose/SaturnTTS/data/metadata_val.json
+  styles_path: /home/jose/SaturnTTS/data/styles.json
+  data_root: /home/jose/SaturnTTS/data
+
+pretrained:
+  phase_a_checkpoint: /home/jose/SaturnTTS/checkpoints/phase_a/latest.pt

@@ -1,0 +1,35 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+
+# data and model artifacts (too large for git)
+data/wavs/
+data/mels/
+pretrained/
+checkpoints/
+outputs/
+*.pt
+*.safetensors
+
+# raw dataset (download separately)
+expresso/
+data/shadowheart_raw.wav
+data/shadowheart_listen.wav
+
+# gradio
+.gradio/
+
+# misc
+.DS_Store
+*.swp
+*.swo
+*~
+.env
+wandb/
+data/shadowheart_ref.wav
+data/shadowheart_listen.wav
+data/shadowheart_raw.wav

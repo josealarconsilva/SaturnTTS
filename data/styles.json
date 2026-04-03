@@ -1,0 +1,11 @@
+{
+  "confused": 0,
+  "default": 1,
+  "emphasis": 2,
+  "enunciated": 3,
+  "essentials": 4,
+  "happy": 5,
+  "laughing": 6,
+  "sad": 7,
+  "whisper": 8
+}

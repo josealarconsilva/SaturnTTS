@@ -1,0 +1,40 @@
+# SaturnTTS Model Configuration
+# Matches F5-TTS v1 Base with style conditioning extensions
+
+model:
+  dim: 1024
+  depth: 22
+  heads: 16
+  dim_head: 64
+  dropout: 0.1
+  ff_mult: 2
+  mel_dim: 100
+  text_num_embeds: 2545
+  text_dim: 512
+  text_mask_padding: true
+  conv_layers: 4
+  checkpoint_activations: true
+
+  # Style conditioning
+  num_styles: 9
+  style_dim: 512
+  style_conv_layers: 4
+  style_cross_attn_heads: 8
+  style_cross_attn_dim_head: 64
+
+cfm:
+  sigma: 0.0
+  audio_drop_prob: 0.3
+  cond_drop_prob: 0.15
+  style_drop_prob: 0.15
+  frac_lengths_mask: [0.7, 1.0]
+  odeint_kwargs:
+    method: euler
+
+mel:
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  n_mel_channels: 100
+  target_sample_rate: 24000
+  mel_spec_type: vocos
